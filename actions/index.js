@@ -1,7 +1,6 @@
-export const RECEIVE_DECKS = 'RECEIVE_DECKS';
-export const NEW_DECK = 'NEW_DECK';
-export const NEW_CARD = 'NEW_CARD';
-export const REMOVE_DECK = 'REMOVE_DECKS';
+export const RECEIVE_DECKS = 'RECEIVE_DECKS'
+export const NEW_DECK = 'NEW_DECK'
+export const NEW_CARD = 'NEW_CARD'
 
 export const receiveDecks = (decks) => {
   return {
@@ -23,12 +22,5 @@ export function addNewCard({ title, question, answer }) {
     title,
     question,
     answer
-  }
-}
-
-export function removeDeck({ title }) {
-  return {
-    type: REMOVE_DECK,
-    title
   }
 }
