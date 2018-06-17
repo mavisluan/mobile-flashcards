@@ -1,19 +1,31 @@
 import React, { Component } from 'react'
-import { View, Text, Platform, StatusBar } from 'react-native';
+import { View, Text, Platform, StatusBar } from 'react-native'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-// import { createTabNavigator, createStackNavigator } from 'react-navigation'
+import { createBottomTabNavigator, createStackNavigator } from 'react-navigation'
 import reducers from './reducers'
 import { purple, white } from './utils/colors'
 import { Constants } from 'expo'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { setLocalNotification } from './utils/helpers'
 import DeckList from './components/DeckList'
+import NewDeck from './components/NewDeck'
+// import DeckDetails from './components/DeckDetails'
+import * as Colors from './utils/colors'
+
+const Tabs = createBottomTabNavigator ({
+  Decks: {
+    screen: DeckList
+  },
+  NewDeck: {
+    screen: NewDeck
+  },
+})
 
 
 export default class App extends React.Component {
   componentDidMount() {
-    setLocalNotification();
+    setLocalNotification()
   }
 
   render() {
@@ -23,9 +35,9 @@ export default class App extends React.Component {
           <View style={{ backgroundColor: purple, height: Constants.statusBarHeight }}>
             <StatusBar translucent backgroundColor={purple} barStyle='light-content' />
           </View>
-          <DeckList />
+          <Tabs />
         </View>
       </Provider>
-    );
+    )
   }
 }
