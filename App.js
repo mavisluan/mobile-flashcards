@@ -8,6 +8,7 @@ import { purple, white } from './utils/colors'
 import { Constants } from 'expo'
 import { FontAwesome, Ionicons } from '@expo/vector-icons'
 import { setLocalNotification } from './utils/helpers'
+import DeckList from './components/DeckList'
 
 
 export default class App extends React.Component {
@@ -22,7 +23,7 @@ export default class App extends React.Component {
           <View style={{ backgroundColor: purple, height: Constants.statusBarHeight }}>
             <StatusBar translucent backgroundColor={purple} barStyle='light-content' />
           </View>
-          <Text>MainNavigator</Text>
+          <DeckList />
         </View>
       </Provider>
     );
