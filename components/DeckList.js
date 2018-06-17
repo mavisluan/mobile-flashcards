@@ -1,14 +1,8 @@
-import React, { Component } from 'react';
-import {
-  FlatList,
-  TouchableOpacity,
-  View,
-  Text
-} from 'react-native';
-// import _ from 'lodash';
-import { connect } from 'react-redux';
-import { AppLoading } from 'expo';
-import { receiveDecks } from '../actions';
+import React, { Component } from 'react'
+import { View, Text } from 'react-native'
+import { connect } from 'react-redux'
+import { AppLoading } from 'expo'
+import { receiveDecks } from '../actions'
 import { fetchFlashCards } from '../utils/api'
 
 class DeckList extends Component {
@@ -25,11 +19,11 @@ class DeckList extends Component {
     fetchFlashCards()
       .then(decks => {
         receiveDecks(decks)
-      });
+      })
   }
 
   render() {
-    const { decks } = this.props;
+    const { decks } = this.props
 
     if (decks === 'undefined') {
       return <AppLoading />
@@ -44,7 +38,7 @@ class DeckList extends Component {
           </View>
         )}
       </View>
-    );
+    )
   }
 }
 
@@ -52,6 +46,6 @@ const mapStateToProps = (state) => {
   return {
     decks: state
   }
-};
+}
 
-export default connect(mapStateToProps, {receiveDecks})(DeckList);
+export default connect(mapStateToProps, {receiveDecks})(DeckList)
