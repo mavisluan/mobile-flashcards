@@ -1,6 +1,6 @@
-import { RECEIVE_DECKS, NEW_DECK, NEW_CARD, REMOVE_DECK } from '../actions';
-import { addEntry } from '../utils/api';
-import _ from 'lodash';
+import { RECEIVE_DECKS, NEW_DECK, NEW_CARD } from '../actions'
+import { addEntry } from '../utils/api'
+import _ from 'lodash'
 
 function reducer(state = {}, action) {
   switch (action.type) {
@@ -11,7 +11,7 @@ function reducer(state = {}, action) {
       }
 
     case NEW_DECK:
-      const { title } = action;
+      const { title } = action
 
       addEntry({
         key: title,
@@ -31,7 +31,7 @@ function reducer(state = {}, action) {
 
     case NEW_CARD:
       {
-        const { title, question, answer } = action;
+        const { title, question, answer } = action
         const entry = {
           title,
           questions: [{
@@ -41,12 +41,12 @@ function reducer(state = {}, action) {
             },
             ...state[title].questions
           ]
-        };
+        }
 
         addEntry({
           key: title,
           entry
-        });
+        })
 
         return {
           ...state,
@@ -54,20 +54,9 @@ function reducer(state = {}, action) {
         }
       }
 
-    case REMOVE_DECK: {
-      const {
-        title
-      } = action;
-
-      const decks = _.omit(state, title);
-      return {
-        ...decks
-      }
-    }
-
     default:
-      return state;
+      return state
   }
 }
 
-export default reducer;
+export default reducer
