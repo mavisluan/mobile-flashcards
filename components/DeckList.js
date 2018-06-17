@@ -34,7 +34,15 @@ class DeckList extends Component {
         {Object.keys(decks).map((deck) =>
           <View key={deck}>
             <Text>{decks[deck].title}</Text>
-            <Text>{decks[deck].questions.length} cards</Text>
+            {
+              decks[deck].questions.length > 1
+              ? <Text>
+                {decks[deck].questions.length} cards
+                </Text>
+              : <Text>
+                {decks[deck].questions.length} card
+                </Text>
+            }
           </View>
         )}
       </View>
