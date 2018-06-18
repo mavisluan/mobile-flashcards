@@ -23,7 +23,7 @@ class DeckList extends Component {
   }
 
   render() {
-    const { decks } = this.props
+    const { decks, deck } = this.props
 
     if (decks === 'undefined') {
       return (
@@ -31,10 +31,18 @@ class DeckList extends Component {
       )
     }
 
+
     return (
       <View style={{flex: 1, alignItems: 'center'}}>
         {Object.keys(decks).map((deck) =>
-          <TouchableOpacity style={styles.container} key={deck}>
+          <TouchableOpacity
+          style={styles.container}
+          key={deck}
+          onPress={() =>
+            this.props.navigation.navigate('Deck', {
+              title: deck
+            })
+          }          >
             <Text style={{fontSize: 20, color:Colors.white,}}>{decks[deck].title}</Text>
             {
               decks[deck].questions.length > 1
