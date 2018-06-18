@@ -42,8 +42,13 @@ class DeckList extends Component {
             this.props.navigation.navigate('Deck', {
               title: deck
             })
-          }          >
-            <Text style={{fontSize: 20, color:Colors.white,}}>{decks[deck].title}</Text>
+          } >
+          
+            { decks[deck].title === ''
+              ? <Text style={{fontSize: 20, color:Colors.white,}}>No title</Text>
+              : <Text style={{fontSize: 20, color:Colors.white,}}>{decks[deck].title}</Text>
+            }
+
             {
               decks[deck].questions.length > 1
               ? <Text style={{fontSize: 20, color: Colors.black}}>
