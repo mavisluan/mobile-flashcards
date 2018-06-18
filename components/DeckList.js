@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
-import { AppLoading } from 'expo'
 import { receiveDecks } from '../actions'
 import { fetchFlashCards } from '../utils/api'
+import * as Colors from '../utils/colors'
 
 class DeckList extends Component {
   state = {
@@ -26,30 +26,49 @@ class DeckList extends Component {
     const { decks } = this.props
 
     if (decks === 'undefined') {
-      return <AppLoading />
+      return (
+        <Text>Add a new deck.</Text>
+      )
     }
 
     return (
-      <View>
+      <View style={{flex: 1, alignItems: 'center'}}>
         {Object.keys(decks).map((deck) =>
-          <View key={deck}>
-            <Text>{decks[deck].title}</Text>
+          <TouchableOpacity style={styles.container} key={deck}>
+            <Text style={{fontSize: 20, color:Colors.white,}}>{decks[deck].title}</Text>
             {
               decks[deck].questions.length > 1
-              ? <Text>
+              ? <Text style={{fontSize: 20, color: Colors.black}}>
                 {decks[deck].questions.length} cards
                 </Text>
-              : <Text>
+              : <Text style={{fontSize: 20, color: Colors.black}}>
                 {decks[deck].questions.length} card
                 </Text>
             }
-          </View>
+          </TouchableOpacity>
         )}
       </View>
     )
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: Colors.lightPurp,
+    width: 200,
+    alignItems: 'center',
+    borderRadius : 16,
+    padding : 20,
+    marginTop: 17,
+    shadowRadius: 3,
+    shadowOpacity: 0.8,
+    shadowColor: Colors.gray,
+    shadowOffset: {
+      width: 0,
+      height: 3
+    }
+  },
+})
 const mapStateToProps = (state) => {
   return {
     decks: state
