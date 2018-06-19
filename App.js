@@ -10,7 +10,9 @@ import { createBottomTabNavigator, createStackNavigator } from 'react-navigation
 import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
 import Deck from './components/Deck'
+import NewCard from './components/NewCard'
 import * as Colors from './utils/colors'
+
 
 const Tabs = createBottomTabNavigator (
   {
@@ -57,11 +59,14 @@ const MainNavigator = createStackNavigator(
     Deck: {
       screen: Deck
     },
+    NewCard: {
+      screen: NewCard
+    },
   }, {
     navigationOptions: {
-      headerTintColor: Colors.red,
+      headerTintColor: Colors.white,
       headerStyle: {
-        backgroundColor: Colors.lightPurp,
+        backgroundColor: Colors.purple,
         height: 40,
         paddingTop: 0
       },
