@@ -11,6 +11,7 @@ import DeckList from './components/DeckList'
 import NewDeck from './components/NewDeck'
 import Deck from './components/Deck'
 import NewCard from './components/NewCard'
+import Quiz from './components/Quiz'
 import * as Colors from './utils/colors'
 
 
@@ -62,6 +63,9 @@ const MainNavigator = createStackNavigator(
     NewCard: {
       screen: NewCard
     },
+    Quiz: {
+      screen: Quiz
+    }
   }, {
     navigationOptions: {
       headerTintColor: Colors.white,
