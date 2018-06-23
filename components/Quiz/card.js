@@ -3,83 +3,26 @@ import styled from 'styled-components/native'
 import {
   TouchableOpacity,
   View,
-  StyleSheet
+  StyleSheet,
+  Text,
+  ScrollView,
 } from 'react-native'
 import FlipCard from 'react-native-flip-card'
 import Progress from './progress'
 import * as Colors from '../../utils/colors'
 
-const ButtonColors = {
-  cor: Colors.green,
-  inCor: Colors.red
-}
-
-const Container = styled.View`
-  flex: 1
-  background-color: ${Colors.black}
-  justify-content: center
-  padding-bottom: 10
-`
-
-const Holder = styled.ScrollView`
-  flex: 1
-  margin-bottom: 40
-  padding-left: 20
-  padding-right: 20
-  padding-top: 20
-`
-
-const Button = styled.TouchableOpacity`
-  background-color: ${props => ButtonColors[props.type]}
-  margin-bottom: 10
-  height: 60
-  flex-direction: row
-  justify-content: center
-  align-items: center
-  align-self: stretch
-  margin-left: 20
-  margin-right: 20
-`
-
-const ButtonText = styled.Text`
-  font-size: 24
-  color: ${Colors.white}
-`
-
-const Text = styled.Text`
-  color: ${Colors.white}
-  font-size: 32
-  margin-bottom: 30
-  align-self: stretch
-`
-
-const SmallText = styled.Text`
-  color: ${Colors.white}
-  font-size: 20
-`
-
-const Fill = styled.Text`
-  background-color: transparent
-  position: absolute
-  top: 72
-  left: 0
-  width: 200
-  text-align: center
-  color: ${Colors.white}
-  font-size: 50
-  font-weight: 900
-`
 
 export default ({onToggle, onCorrect, onIncorrect, step, questions, showAnswer}) => {
   return (
-    <Container>
+    <View style={styles.container}>
+      <Text style={{fontSize: 20 }}>{step + 1} of {questions.length}</Text>
       <Progress
         height={3}
         progress={(step + 1) / questions.length}
         duration={500}
       />
 
-      <Holder>
+      <ScrollView style={{flex: 1, marginBottom: 40}}>
         <FlipCard
           style={styles.flip}
           flipHorizontal={true}
@@ -90,39 +33,38 @@ export default ({onToggle, onCorrect, onIncorrect, step, questions, showAnswer})
           perspective={6000}
         >
           <View style={styles.inner}>
-            <Text>{questions[step].question}</Text>
+            <Text style={{fontSize: 30}}>{questions[step].question}</Text>
             <TouchableOpacity
               onPress={onToggle}
             >
-              <SmallText>View answer</SmallText>
+              <Text style={{fontSize: 20, color: Colors.purple}}>View answer</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.inner}>
-            <Text>{questions[step].answer}</Text>
+            <Text style={{fontSize: 30}}>{questions[step].answer}</Text>
             <TouchableOpacity
               onPress={onToggle}
             >
-              <SmallText>View question</SmallText>
+              <Text style={{fontSize: 20, color: Colors.purple}}>View question</Text>
             </TouchableOpacity>
           </View>
         </FlipCard>
-        </Holder>
-      <Button
-        type='cor'
+        </ScrollView>
+      <TouchableOpacity
+        style={[styles.button, {backgroundColor: Colors.green}]}
         onPress={onCorrect}
       >
-        <ButtonText>True</ButtonText>
-      </Button>
+        <Text style={{fontSize: 20, alignSelf: 'center'}}>True</Text>
+      </TouchableOpacity>
 
-      <Button
-        type='inCor'
+      <TouchableOpacity
+        style={[styles.button, {backgroundColor: Colors.red}]}
         onPress={onIncorrect}
       >
-        <ButtonText>False</ButtonText>
-      </Button>
-
-    </Container>
+        <Text style={{fontSize: 20, alignSelf: 'center'}}>False</Text>
+      </TouchableOpacity>
+    </View>
   )
 }
 
@@ -133,8 +75,27 @@ const styles = StyleSheet.create({
     borderWidth: 0,
     alignSelf: 'stretch'
   },
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    marginBottom: 50,
+  },
   inner: {
     alignItems: 'flex-start',
     alignSelf: 'stretch'
+  },
+  button: {
+    alignSelf:'center',
+    width: 200,
+    borderRadius : 16,
+    padding : 20,
+    marginBottom: 40,
+    shadowRadius: 3,
+    shadowOpacity: 0.8,
+    shadowColor: Colors.gray,
+    shadowOffset: {
+      width: 0,
+      height: 3
+    }
   }
 })
