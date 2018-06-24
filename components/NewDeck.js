@@ -9,7 +9,7 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
-import * as Colors from '../utils/colors';
+import * as Colors from '../utils/colors'
 
 
 class NewDeck extends Component {
@@ -27,6 +27,10 @@ class NewDeck extends Component {
     const input = entry.trim()
     addDeck({ title: input })
     this.setState({ text: '' })
+    navigation.navigate(
+      'Deck',
+      { title: input, key: navigation.state.key }
+    )
   }
 
   render() {
