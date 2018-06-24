@@ -41,7 +41,7 @@ class ProgressBar extends Component {
             top: 0,
             bottom: 0,
             width: widthInterpolated,
-            backgroundColor: barColor
+            backgroundColor: barColor,
           }}
         />
       </View>
@@ -51,7 +51,7 @@ class ProgressBar extends Component {
 
 ProgressBar.defaultProps = {
   height: 5,
-  barColor: Colors.yellow,
+  barColor: Colors.gray,
   fillColor: 'transparent',
   duration: 100
 }
