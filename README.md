@@ -4,7 +4,7 @@
 - It allows users to study collections of flashcards
 
 
-## App Functions
+## App Functionality
 
 Users will be able to
 - create different categories of flashcards called "decks"
@@ -12,7 +12,7 @@ Users will be able to
 - take quizzes on those deck
 
 
-## Instructions for installment
+## Installation Instructions
 
 - git clone https://github.com/mavisluan/mobile-flashcards.git
 - cd mobile-flashcards
