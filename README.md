@@ -27,7 +27,6 @@ Users will be able to
 - take quizzes on those deck
 
 
-
 # Installation Instructions
 
 - git clone https://github.com/mavisluan/mobile-flashcards.git
