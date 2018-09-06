@@ -7,16 +7,16 @@
 # App Screenshot
 
 ## Decks 
-![](utils/icons/decks.png)
+![](utils/decks.png)
 
 ## New Deck 
-![](utils/icons/new-deck.png)
+![](utils/new-deck.png)
 
 ## Deck View
-![](utils/icons/deck.png)
+![](utils/deck.png)
 
 ## Quiz View
-![](utils/icons/quiz.png)
+![](utils/quiz.png)
 
 
 # App Functionalty
