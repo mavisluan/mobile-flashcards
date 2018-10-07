@@ -4,17 +4,17 @@
 - It allows users to study collections of flashcards
 
 
-# App Screenshot
+## App Screenshot
 
-## Decks 
+### Decks 
 <img src='utils/icons/decks.png' width='300'>
 
 
-## Deck View
+### Deck View
 <img src='utils/icons/deck.png' width='300'>
 
 
-# App Functionalty
+## App Functionalty
 
 Users will be able to
 - create different categories of flashcards called "decks"
@@ -22,7 +22,7 @@ Users will be able to
 - take quizzes on those deck
 
 
-# Installation Instructions
+## Installation Instructions
 
 - git clone https://github.com/mavisluan/mobile-flashcards.git
 - cd mobile-flashcards
