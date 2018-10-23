@@ -1,6 +1,6 @@
 # MobileFlashCards Project
 
-- MobileFlashCards Project is a mobile application, build with ReactJS. 
+- MobileFlashCards Project is a mobile application, build with React Native. 
 - It allows users to study collections of flashcards
 
 
